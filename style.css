@@ -29,6 +29,36 @@ html, body{
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
+.navbar{
+    padding:15px 20px;
+}
+@media(max-width:900px){
+
+    .navbar{
+        padding:15px 20px;
+    }
+
+    .logo-text{
+        font-size:20px;
+    }
+
+}
+@media(max-width:768px){
+
+    .hero{
+        padding-top:40px;
+    }
+
+    .about,
+    .skills,
+    .projects,
+    .services,
+    .contact{
+        padding:80px 20px;
+    }
+
+}
+
 
 html{ scroll-behavior:smooth; }
 
@@ -550,9 +580,18 @@ section{
     position:fixed;
     bottom:20px;
     right:20px;
-    width:55px;
-    height:55px;
+    width:60px;
+    height:60px;
+    background:#FFD700;
+    color:#000;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-size:22px;
+    cursor:pointer;
+    box-shadow:0 0 25px #FFD700;
+    z-index:2000;
 }
 
 
@@ -637,6 +676,20 @@ section{
     cursor:pointer;
     font-weight:bold;
 }
+@media(max-width:480px){
+    .chat-toggle{
+        bottom:15px;
+        right:15px;
+        width:55px;
+        height:55px;
+    }
+
+    .chatbox{
+        width:92%;
+        right:4%;
+    }
+}
+
 
 /* ================= RESPONSIVE ================= */
 
@@ -1372,3 +1425,77 @@ h3{
         justify-content: center;
     }
 }
+@media (max-width:768px){
+
+    .contact-wrapper{
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .input-group{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .contact{
+        padding:80px 20px;
+    }
+
+}
+/* ===============================
+   CONTACT SECTION RESPONSIVE
+================================= */
+
+@media (max-width: 992px) {
+
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .contact {
+        padding: 80px 20px;
+    }
+
+    .contact-left h2 {
+        font-size: 28px;
+    }
+
+    .contact-left p {
+        font-size: 14px;
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .contact-right button {
+        width: 100%;
+        padding: 14px;
+        font-size: 15px;
+    }
+
+}
+
