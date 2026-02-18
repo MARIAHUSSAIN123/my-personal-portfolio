@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-text">Maria</span>
+        </div>
+
+        <!-- Links -->
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">My Services</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+
+        <!-- Resume Button -->
+        <a href="./mycv.png" class="resume-btn"download>Resume</a>
+<div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    </nav>
+</header>
+<!-- Chatbot Button -->
+<div class="chat-toggle" onclick="toggleChat()">
+    💬
+</div>
+
+<!-- Chatbot Box -->
+<div class="chatbox" id="chatbox">
+    <div class="chat-header">
+        Portfolio Assistant
+        <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+        <div class="bot-msg">
+            👋 Hi! I'm Maria's assistant. How can I help you?
+        </div>
+    </div>
+
+    <div class="chat-footer">
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+
+  <section class="hero" id="home">
+    <div class="hero-left">
+        <h5>BUILDING SCALABLE & MODERN WEB SOLUTIONS</h5>
+
+        <h1>
+            I'm a <br>
+            <span class="typed-text"></span>
+        </h1>
+
+        <p>
+            I create modern, scalable and high-performance digital experiences
+            for businesses and brands worldwide.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="https://github.com/MARIAHUSSAIN123" class="btn-primary">View My GitHub</a>
+            <a href="https://www.linkedin.com/in/maria-hussain-b53246306?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-outline">view my Linkdlen</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="hero-image">
+            <img src="my.png" alt="Maria">
+        </div>
+    </div>
+</section>
+<section class="about" id="about">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="my2.png" alt="Maria">
+        </div>
+
+        <div class="about-content">
+            <h2>About Me</h2>
+            <h1>I'm Maria</h1>
+
+            <h4>Full Stack Developer | Freelancer</h4>
+
+            <p>
+                Passionate full stack developer with expertise in building
+                scalable web applications. I create modern, high-performance
+                digital experiences with clean and professional design.
+            </p>
+
+            <a href="#projects" class="about-btn">View Projects</a>
+        </div>
+
+    </div>
+</section>
+<section class="skills" id="skills">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card" data-percent="100">
+            <div class="skill-info">
+                <span>HTML5</span>
+                <span>100%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="95">
+            <div class="skill-info">
+                <span>CSS3</span>
+                <span>95%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="90">
+            <div class="skill-info">
+                <span>JavaScript</span>
+                <span>90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="85">
+            <div class="skill-info">
+                <span>React.js</span>
+                <span>85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <!-- NEW SKILLS -->
+
+        <div class="skill-card" data-percent="80">
+            <div class="skill-info">
+                <span>Python</span>
+                <span>80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="90">
+            <div class="skill-info">
+                <span>Tailwind CSS</span>
+                <span>90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="85">
+            <div class="skill-info">
+                <span>MongoDB</span>
+                <span>85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="80">
+            <div class="skill-info">
+                <span>Express.js</span>
+                <span>80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="85">
+            <div class="skill-info">
+                <span>Node.js</span>
+                <span>85%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+        <div class="skill-card" data-percent="75">
+            <div class="skill-info">
+                <span>Firebase</span>
+                <span>75%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="projects" id="projects">
+<h2 class="section-title">My Projects</h2>
+ <div class="projects-container">
+ <!-- 1 Makeup Website -->
+ <div class="project-card">
+<div class="project-img">
+ <img src="https://i.pinimg.com/originals/49/68/80/496880c054dbfddfe86f9bcf32f61a38.gif" alt="Makeup Website">
+</div>
+<div class="project-content">
+<h3>Makeup Website</h3>
+<p>Modern beauty & cosmetics website with responsive design and smooth animations.</p>
+
+<div class="project-links">
+<a href="https://github.com/MARIAHUSSAIN123/makeup-with-react.git" target="_blank" class="btn">GitHub Repo</a>
+<a href="https://makeup-with-react.vercel.app/" target="_blank" class="btn">Live Demo</a>
+</div>
+</div>
+</div>
+
+<!-- 2 Resume Generator -->
+<div class="project-card">
+ <div class="project-img">
+<img src="https://i.pinimg.com/originals/88/6b/15/886b1598b09c5c588004570c4fd1e28c.gif" alt="Resume Generator">
+</div>
+<div class="project-content">
+ <h3>Resume Generator</h3>
+<p>Dynamic resume builder that generates professional CVs instantly.</p>
+
+<div class="project-links">
+<a href="https://github.com/MARIAHUSSAIN123/hackhaton-resume.git" target="_blank" class="btn">GitHub Repo</a>
+<a href="https://hackhaton-resume.vercel.app/" target="_blank" class="btn">Live Demo</a>
+</div>
+</div>
+ </div>
+
+ <!-- 3 Chat App -->
+ <div class="project-card">
+<div class="project-img">
+<img src="https://i.pinimg.com/originals/da/fa/31/dafa3119317cc7542447e970bc3143ac.gif" alt="Chat App">
+</div>
+ <div class="project-content">
+ <h3>Chat Application</h3>
+<p>Real-time messaging app using modern full-stack technologies.</p>
+
+ <div class="project-links">
+ <a href="https://github.com/MARIAHUSSAIN123/chatapp-firebase.git" target="_blank" class="btn">GitHub Repo</a>
+<a href="https://taupe-froyo-e78f23.netlify.app/" target="_blank" class="btn">Live Demo</a>
+ </div>
+</div>
+</div>
+
+ <!-- 4 Client Website -->
+<div class="project-card">
+ <div class="project-img">
+<img src="https://i.pinimg.com/originals/62/75/6e/62756e2c915e7df0ec3cb5711f6c3c24.gif" alt="Client Website">
+</div>
+ <div class="project-content">
+<h3>fully functional quiz App</h3>
+<p>professional quiz app with timer and backend functionality.</p>
+
+<div class="project-links">
+ <a href="https://github.com/MARIAHUSSAIN123/Quiz-app.git" target="_blank" class="btn">GitHub Repo</a>
+<a href="https://funny-lolly-2f0c2b.netlify.app/" target="_blank" class="btn">Live Demo</a>
+</div>
+</div>
+ </div>
+
+<!-- 5 Lyyvora.com -->
+ <div class="project-card">
+<div class="project-img">
+<img src="https://i.pinimg.com/originals/84/47/d8/8447d8400d397ad5ffd6059247026ee2.gif" alt="Lyyvora Website">
+ </div>
+<div class="project-content">
+ <h3>Lyyvora.com</h3>
+<p>Custom designed business website with advanced UI and animations.</p>
+
+<div class="project-links">
+ <a href="https://www.lyyvora.com" target="_blank" class="btn">GitHub Repo</a>
+<a href="https://lyyvora.com" target="_blank" class="btn">Live Demo</a>
+</div>
+</div>
+</div>
+
+ <!-- 6 Complaint Portal -->
+<div class="project-card">
+<div class="project-img">
+ <img src="https://i.pinimg.com/originals/fd/ed/17/fded1765432df670e8dce05020ad58a1.gif" alt="Complaint Portal">
+</div>
+<div class="project-content">
+<h3>Complaint Portal</h3>
+<p>Full-stack complaint management system with authentication & database.</p>
+
+<div class="project-links">
+ <a href="#" target="_blank" class="btn">GitHub Repo</a>
+<a href="#" target="_blank" class="btn">Live Demo</a>
+</div>
+</div>
+ </div>
+
+</div>
+</section>
+<section class="services" id="services">
+    <h2 class="section-title">My Services</h2>
+
+    <div class="services-container">
+
+        <!-- 1 Web Development -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>Responsive modern websites using MERN stack & latest web technologies.</p>
+        </div>
+
+        <!-- 2 App Development -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>App Development</h3>
+            <p>Cross-platform apps with smooth UI/UX and optimal performance.</p>
+        </div>
+
+        <!-- 3 UI/UX Design -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-globe"></i>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Intuitive interfaces and engaging experiences for web & mobile.</p>
+        </div>
+
+        <!-- 4 Content Creator -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-video"></i>
+            </div>
+            <h3>Content Creator</h3>
+            <p>Creative digital content for brands, social media & marketing campaigns.</p>
+        </div>
+
+        <!-- 5 Graphic Design -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-palette"></i>
+            </div>
+            <h3>Graphic Design</h3>
+            <p>Professional branding, social media posts, logos & visual identity design.</p>
+        </div>
+
+    </div>
+</section>
+<section class="experience" id="experience">
+    <div class="experience-wrapper">
+
+        <!-- LEFT STATS -->
+        <div class="experience-stats">
+            <div class="stat">
+                <h1 class="counter" data-target="20">0</h1>
+                <p>Clients</p>
+            </div>
+
+            <div class="stat">
+                <h1 class="counter" data-target="10">0</h1>
+                <p>Projects</p>
+            </div>
+
+            <div class="stat">
+                <h1 class="counter" data-target="5">0</h1>
+                <p>Years Experience</p>
+            </div>
+        </div>
+
+        <!-- RIGHT TIMELINE -->
+        <div class="experience-timeline">
+
+            <div class="exp-card">
+                <span class="dot"></span>
+                <h3>frontend Internship</h3>
+                <h4>Internee.pk</h4>
+                <p>
+                    Did internship of frontend and backend development and worked on real world projects using Mern stack
+                </p>
+            </div>
+
+            <div class="exp-card">
+                <span class="dot"></span>
+                <h3>canadian client project</h3>
+                <h4>lyyvora.com</h4>
+                <p>
+                    work on a project for a canadian client and built a fully functional website with custom design and animations
+                </p>
+            </div>
+
+            <div class="exp-card">
+                <span class="dot"></span>
+                <h3>Online Web Dev Instructor-TA at (SMIT-numaish campus)</h3>
+                <h4></h4>
+                <p>
+                    Conducted AI and web development classes for online students.
+                    Helped young learners build creativity, logic, and problem-solving skills.and future Ai dev to be
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="contact" id="contact">
+
+    <div class="contact-container">
+
+        <h2 class="section-title">Contact <span>Me</span></h2>
+
+        <div class="contact-wrapper">
+
+            <!-- LEFT INFO -->
+            <div class="contact-info">
+                <h3>Let’s Work Together</h3>
+                <p>
+                    Have a project in mind or want to collaborate? 
+                    Feel free to reach out. I'm always open to discussing new opportunities.
+                </p>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>mariahussain021@gmail.com</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+92 335 2374683</span>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Karachi, Pakistan</span>
+                </div>
+            </div>
+
+            <!-- RIGHT FORM -->
+            <form class="contact-form">
+
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+
+                <input type="text" placeholder="Subject" required>
+
+                <textarea rows="6" placeholder="Your Message"></textarea>
+
+                <button type="submit" class="contact-btn">Send Message</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+<footer class="footer">
+
+    <div class="footer-container">
+ <div class="footer-left">
+        <h3>Maria Hussain</h3>
+        <p>Web & App Developer | Freeelancer | MERN Stack Developer</p>
+
+       
+</div>
+ <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+         <div class="footer-social">
+            <h4>Connect With Me</h4>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/maria-hussain-b53246306?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fa-brands fa-linkedin"></i>L</a>
+                <a href="https://github.com/MARIAHUSSAIN123"><i class="fa-brands fa-github"></i>G</a>
+                <a href="#"><i class="fa-brands fa-instagram"></i>i</a>
+            </div>
+        </div>
+        <p class="copyright">
+            © 2026 Maria Hussain | All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<div class="cursor-glow"></div>
+
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script src="script.js"></script>
+    
+</body>
+</html>
