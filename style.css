@@ -2,6 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 /* ================= ROOT COLORS ================= */
+html, body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+@media(max-width:768px){
+    .hero::before{
+        display:none;
+    }
+}
+
 :root{
     --black:#0b0b0f;
     --dark:#111;
@@ -29,6 +40,20 @@ body{
 }
 
 /* ================= NAVBAR ================= */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    position:relative;
+    background:var(--black);
+
+    background-image:
+        linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+}
 
 
 header{
@@ -175,10 +200,11 @@ header{
 /* ================= SECTIONS GLOBAL ================= */
 
 section{
-    padding:100px 8%;
+    padding:80px 20px;
     max-width:1200px;
-    margin:auto;
+    margin:0 auto;
 }
+
 
 /* ================= HERO ================= */
 
@@ -522,22 +548,13 @@ section{
 /* Floating Button */
 .chat-toggle{
     position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#ffff00;
-    color:#000;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    cursor:pointer;
-    box-shadow:0 0 20px #ffff00;
-    z-index:1000;
-    transition:0.3s;
+    bottom:20px;
+    right:20px;
+    width:55px;
+    height:55px;
+    font-size:22px;
 }
+
 
 .chat-toggle:hover{
     box-shadow:0 0 40px #ffff00;
@@ -686,6 +703,24 @@ section{
     border:5px solid var(--yellow);
     box-shadow:0 0 70px rgba(255,215,0,0.5);
 }
+@media(max-width:480px){
+
+    .chatbox{
+        width:90%;
+        right:5%;
+        bottom:90px;
+    }
+
+    .chat-toggle{
+        right:15px;
+        bottom:15px;
+    }
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+
 
 .about-image img{
     width:100%;
