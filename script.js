@@ -1,8 +1,7 @@
 // ===== TYPED TEXT =====
 var typed = new Typed(".typed-text", {
     strings: [
-        "AI Developer (To Be)",
-        "Data Science Enthusiast",
+        "AI Data Scientist",
         "Full Stack Developer",
         "Freelancer",
         "Content Creator",
