@@ -371,73 +371,96 @@ function toggleChat() {
 }
 
 
-function sendMessage() {
+// =====================================================
+// 🤖 MARIA AI PORTFOLIO CHATBOT
+// =====================================================
 
-    const input =
-        document.getElementById("userInput");
+async function sendMessage() {
 
-    const chatBody =
-        document.getElementById("chatBody");
+    const input = document.getElementById("userInput");
+    const chatBody = document.getElementById("chatBody");
 
+    if (!input || !chatBody) return;
 
-    if (
-        !input ||
-        !chatBody ||
-        input.value.trim() === ""
-    ) {
-        return;
-    }
+    const message = input.value.trim();
+
+    if (!message) return;
 
 
     // USER MESSAGE
+    const userMsg = document.createElement("div");
 
-    const userMsg =
-        document.createElement("div");
+    userMsg.classList.add("user-msg");
 
-    userMsg.classList.add(
-        "user-msg"
-    );
+    userMsg.innerText = message;
 
-    userMsg.innerText =
-        input.value.trim();
-
-    chatBody.appendChild(
-        userMsg
-    );
-
-
-    // BOT MESSAGE
-
-    const botMsg =
-        document.createElement("div");
-
-    botMsg.classList.add(
-        "bot-msg"
-    );
-
-    botMsg.innerText =
-        "Thanks for your message! Maria will contact you soon.";
-
-
-    setTimeout(() => {
-
-        chatBody.appendChild(
-            botMsg
-        );
-
-        chatBody.scrollTop =
-            chatBody.scrollHeight;
-
-    }, 800);
-
+    chatBody.appendChild(userMsg);
 
     input.value = "";
 
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+
+    // AI LOADING MESSAGE
+    const botMsg = document.createElement("div");
+
+    botMsg.classList.add("bot-msg");
+
+    botMsg.innerText = "✨ Thinking...";
+
+    chatBody.appendChild(botMsg);
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+
+    try {
+
+        const response = await fetch("/api/chat", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                message: message
+            })
+
+        });
+
+
+        const data = await response.json();
+
+        console.log("AI RESPONSE:", data);
+
+
+        if (data.success) {
+
+            botMsg.innerText = data.reply;
+
+        } else {
+
+            botMsg.innerText =
+                data.message ||
+                "Sorry, I couldn't answer that.";
+
+        }
+
+
+    } catch (error) {
+
+        console.error("CHAT ERROR:", error);
+
+        botMsg.innerText =
+            "⚠️ Unable to connect to AI assistant.";
+
+    }
+
+
     chatBody.scrollTop =
         chatBody.scrollHeight;
-
 }
-
 
 // =====================================================
 // ENTER KEY FOR CHAT
