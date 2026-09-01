@@ -1,695 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Personal Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Maria</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <header>
+
+  <div class="cursor-glow"></div>
+
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#A855F7" />
+        <stop offset="100%" stop-color="#7C3AED" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <header>
     <nav class="navbar">
-        
-        <!-- Logo -->
-        <div class="logo">
-            <span class="logo-text">Maria</span>
-        </div>
-
-        <!-- Links -->
-        <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">My Services</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-        </ul>
-
-        <!-- Resume Button -->
-        <a href="./cv.html" class="resume-btn">Resume</a>
-<div class="menu-toggle">
+      <div class="logo-text">Maria</div>
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="resume-btn">Resume</a>
+      <div class="menu-toggle">
         <span></span>
         <span></span>
         <span></span>
-    </div>
+      </div>
     </nav>
-</header>
-<!-- Chatbot Button -->
-<div class="chat-toggle" onclick="toggleChat()">
-    💬
-</div>
+  </header>
 
-<!-- Chatbot Box -->
-<div class="chatbox" id="chatbox">
-    <div class="chat-header">
-        Portfolio Assistant
-        <span onclick="toggleChat()">✖</span>
-    </div>
-
-    <div class="chat-body" id="chatBody">
-        <div class="bot-msg">
-            👋 Hi! I'm Maria's assistant. How can I help you?
-        </div>
-    </div>
-
-    <div class="chat-footer">
-        <input type="text" id="userInput" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-    </div>
-</div>
-
-
-  <section class="hero" id="home">
+  <section id="hero" class="hero">
     <div class="aurora">
-        <span class="aurora-blob blob-1"></span>
-        <span class="aurora-blob blob-2"></span>
-        <span class="aurora-blob blob-3"></span>
+      <div class="aurora-blob blob-1"></div>
+      <div class="aurora-blob blob-2"></div>
+      <div class="aurora-blob blob-3"></div>
+    </div>
+    
+    <div class="hero-left reveal">
+      <h5>Welcome to my space</h5>
+      <h1>Hi, I'm Maria</h1>
+      <h1><span class="typed-text"></span></h1>
+      <p>Building intelligent systems, scalable web applications, and immersive design solutions.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
     </div>
 
-    <div class="hero-left">
-        <h5>BUILDING SCALABLE & MODERN WEB SOLUTIONS</h5>
-
-        <h1>
-            I'm a <br>
-            <span class="typed-text"></span>
-        </h1>
-
-        <p>
-            I create modern, scalable and high-performance digital experiences
-            for businesses and brands worldwide.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="https://github.com/MARIAHUSSAIN123" class="btn-primary">View My GitHub</a>
-            <a href="https://www.linkedin.com/in/maria-hussain-b53246306?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-outline">view my Linkdlen</a>
-        </div>
+    <div class="hero-right reveal">
+      <div class="hero-image">
+        <img src="my (1).png.jfif" alt="Maria Profile Picture">
+        <div class="tech-chip chip-1">Python</div>
+        <div class="tech-chip chip-2">PyTorch</div>
+        <div class="tech-chip chip-3">Full Stack</div>
+        <div class="tech-chip chip-4">UI/UX</div>
+      </div>
     </div>
+  </section>
 
-    <div class="hero-right">
-        <div class="hero-image">
-            <img src="my (1).png.jfif" alt="Maria">
-            <span class="tech-chip chip-1">AI</span>
-            <span class="tech-chip chip-2">React</span>
-            <span class="tech-chip chip-3">Python</span>
-            <span class="tech-chip chip-4">MERN</span>
-        </div>
+  <section id="about" class="about">
+    <div class="about-container reveal">
+      <div class="about-image">
+        <img src="my2 (2).png.jfif" alt="About Maria">
+      </div>
+      <div class="about-content">
+        <h2>About Me</h2>
+        <h1>Driven by Data & Innovation</h1>
+        <h4>AI Data Scientist & Full Stack Developer</h4>
+        <p>I specialize in designing advanced machine learning models and crafting responsive web interfaces. Combining analytical expertise with creative design principles to solve complex digital problems.</p>
+        <a href="#contact" class="btn-primary">Let's Connect</a>
+      </div>
     </div>
-</section>
-<section class="about reveal" id="about">
-    <div class="about-container">
+  </section>
 
-        <div class="about-image">
-            <img src="my2 (2).png.jfif" alt="Maria">
-        </div>
-
-        <div class="about-content">
-            <h2>About Me</h2>
-            <h1>I'm Maria</h1>
-
-            <h4>Full Stack Developer | Freelancer</h4>
-
-            <p>
-                Passionate full stack developer with expertise in building
-                scalable web applications. I create modern, high-performance
-                digital experiences with clean and professional design.
-            </p>
-
-            <a href="#projects" class="about-btn">View Projects</a>
-        </div>
-
-    </div>
-</section>
-<section class="skills reveal" id="skills">
+  <section id="skills" class="skills">
     <h2 class="section-title">My Skills</h2>
-    <p class="skills-sub">A quick look at the tools and technologies I work with</p>
-
-    <svg width="0" height="0" style="position:absolute">
-        <defs>
-            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#A855F7"></stop>
-                <stop offset="100%" stop-color="#7C3AED"></stop>
-            </linearGradient>
-        </defs>
-    </svg>
-
-    <div class="skills-group">
-        <h3 class="skills-group-title">Frontend &amp; Core</h3>
-        <div class="skills-container">
-
-            <div class="skill-card" data-percent="100">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">100%</span>
-                </div>
-                <p class="skill-name">HTML5</p>
-            </div>
-
-            <div class="skill-card" data-percent="95">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">95%</span>
-                </div>
-                <p class="skill-name">CSS3</p>
-            </div>
-
-            <div class="skill-card" data-percent="90">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">90%</span>
-                </div>
-                <p class="skill-name">JavaScript</p>
-            </div>
-
-            <div class="skill-card" data-percent="85">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <p class="skill-name">React.js</p>
-            </div>
-
-            <div class="skill-card" data-percent="90">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">90%</span>
-                </div>
-                <p class="skill-name">Tailwind CSS</p>
-            </div>
-
+    <p class="skills-sub">A breakdown of my technical capabilities</p>
+    
+    <div class="skills-group reveal">
+      <h3 class="skills-group-title">Development & Data Science</h3>
+      <div class="skills-container">
+        
+        <div class="skill-card" data-percent="90">
+          <div class="skill-ring">
+            <svg>
+              <circle class="ring-bg" cx="55" cy="55" r="52"></circle>
+              <circle class="ring-fg" cx="55" cy="55" r="52"></circle>
+            </svg>
+            <div class="skill-percent">90%</div>
+          </div>
+          <div class="skill-name">Python</div>
         </div>
-    </div>
 
-    <div class="skills-group">
-        <h3 class="skills-group-title">Backend &amp; Tools</h3>
-        <div class="skills-container">
-
-            <div class="skill-card" data-percent="80">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">80%</span>
-                </div>
-                <p class="skill-name">Python</p>
-            </div>
-
-            <div class="skill-card" data-percent="85">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <p class="skill-name">MongoDB</p>
-            </div>
-
-            <div class="skill-card" data-percent="80">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">80%</span>
-                </div>
-                <p class="skill-name">Express.js</p>
-            </div>
-
-            <div class="skill-card" data-percent="85">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <p class="skill-name">Node.js</p>
-            </div>
-
-            <div class="skill-card" data-percent="75">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">75%</span>
-                </div>
-                <p class="skill-name">Firebase</p>
-            </div>
-
+        <div class="skill-card" data-percent="85">
+          <div class="skill-ring">
+            <svg>
+              <circle class="ring-bg" cx="55" cy="55" r="52"></circle>
+              <circle class="ring-fg" cx="55" cy="55" r="52"></circle>
+            </svg>
+            <div class="skill-percent">85%</div>
+          </div>
+          <div class="skill-name">Machine Learning</div>
         </div>
-    </div>
 
-    <div class="skills-group">
-        <h3 class="skills-group-title">AI &amp; Data Science</h3>
-        <div class="skills-container">
-
-            <div class="skill-card" data-percent="85">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <p class="skill-name">Machine Learning</p>
-            </div>
-
-            <div class="skill-card" data-percent="80">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">80%</span>
-                </div>
-                <p class="skill-name">Deep Learning</p>
-            </div>
-
-            <div class="skill-card" data-percent="78">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">78%</span>
-                </div>
-                <p class="skill-name">Statistics</p>
-            </div>
-
-            <div class="skill-card" data-percent="82">
-                <div class="skill-ring">
-                    <svg viewBox="0 0 120 120">
-                        <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
-                        <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
-                    </svg>
-                    <span class="skill-percent">82%</span>
-                </div>
-                <p class="skill-name">Generative AI</p>
-            </div>
-
+        <div class="skill-card" data-percent="88">
+          <div class="skill-ring">
+            <svg>
+              <circle class="ring-bg" cx="55" cy="55" r="52"></circle>
+              <circle class="ring-fg" cx="55" cy="55" r="52"></circle>
+            </svg>
+            <div class="skill-percent">88%</div>
+          </div>
+          <div class="skill-name">Web Development</div>
         </div>
+
+      </div>
     </div>
-</section>
-<section class="projects reveal" id="projects">
-<h2 class="section-title">My Projects</h2>
- <div class="projects-container">
+  </section>
 
- <!-- AI Project 1: Fire & Smoke Detection -->
- <div class="project-card ai-card">
-<div class="project-img">
- <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWs1bHcza29nNXgyNnhoOHA2MGpidXk3cDMzM2RsYnNxbXVqMXRnYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/39DhBwd6SaReJToAka/giphy.gif" alt="Fire & Smoke Detection AI">
- <span class="ai-tag">AI</span>
-</div>
-<div class="project-content">
-<h3>Fire & Smoke Detection AI</h3>
-<p>Deep learning model that detects fire and smoke from images in real time, deployed as an interactive Streamlit app.</p>
-
-<div class="project-links">
-<a href="https://github.com/MARIAHUSSAIN123/fire-smoke-deployment.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://fire-smoke-deployment-kdbt29frokyfxupphytqdi.streamlit.app/" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
-</div>
-
- <!-- AI Project 2: Hackathon Data Science Project -->
- <div class="project-card ai-card">
-<div class="project-img">
- <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHdyM29veDlybjduZ2pmNXlsOXpsMTZzbmRhZmJxNXhtdjJqdHN1YiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/kzEm7kysWiCpN11uNq/200.gif" alt="Hackathon Data Science Project">
- <span class="ai-tag">AI</span>
-</div>
-<div class="project-content">
-<h3>Hackathon Data Science App</h3>
-<p>An AI-powered data analysis app built during a hackathon, turning raw data into clear, interactive insights.</p>
-
-<div class="project-links">
-<a href="https://github.com/MARIAHUSSAIN123/Hackhaton-project-.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://mariahussain123-hackhaton-project--app-jodx46.streamlit.app/" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
-</div>
-
- <!-- 1 Makeup Website -->
- <div class="project-card">
-<div class="project-img">
- <img src="https://i.pinimg.com/originals/49/68/80/496880c054dbfddfe86f9bcf32f61a38.gif" alt="Makeup Website">
-</div>
-<div class="project-content">
-<h3>Makeup Website</h3>
-<p>Modern beauty & cosmetics website with responsive design and smooth animations.</p>
-
-<div class="project-links">
-<a href="https://github.com/MARIAHUSSAIN123/makeup-with-react.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://makeup-with-react.vercel.app/" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
-</div>
-
-<!-- 2 Resume Generator -->
-<div class="project-card">
- <div class="project-img">
-<img src="https://i.pinimg.com/originals/88/6b/15/886b1598b09c5c588004570c4fd1e28c.gif" alt="Resume Generator">
-</div>
-<div class="project-content">
- <h3>Resume Generator</h3>
-<p>Dynamic resume builder that generates professional CVs instantly.</p>
-
-<div class="project-links">
-<a href="https://github.com/MARIAHUSSAIN123/hackhaton-resume.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://hackhaton-resume.vercel.app/" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
- </div>
-
- <!-- 3 Chat App -->
- <div class="project-card">
-<div class="project-img">
-<img src="https://i.pinimg.com/originals/da/fa/31/dafa3119317cc7542447e970bc3143ac.gif" alt="Chat App">
-</div>
- <div class="project-content">
- <h3>Chat Application</h3>
-<p>Real-time messaging app using modern full-stack technologies.</p>
-
- <div class="project-links">
- <a href="https://github.com/MARIAHUSSAIN123/chatapp-firebase.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://taupe-froyo-e78f23.netlify.app/" target="_blank" class="btn">Live Demo</a>
- </div>
-</div>
-</div>
-
- <!-- 4 Client Website -->
-<div class="project-card">
- <div class="project-img">
-<img src="https://i.pinimg.com/originals/62/75/6e/62756e2c915e7df0ec3cb5711f6c3c24.gif" alt="Client Website">
-</div>
- <div class="project-content">
-<h3>fully functional quiz App</h3>
-<p>professional quiz app with timer and backend functionality.</p>
-
-<div class="project-links">
- <a href="https://github.com/MARIAHUSSAIN123/Quiz-app.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://funny-lolly-2f0c2b.netlify.app/" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
- </div>
-
-<!-- 5 Lyyvora.com -->
- <div class="project-card">
-<div class="project-img">
-<img src="https://i.pinimg.com/originals/84/47/d8/8447d8400d397ad5ffd6059247026ee2.gif" alt="Lyyvora Website">
- </div>
-<div class="project-content">
- <h3>Lyyvora.com</h3>
-<p>Custom designed business website with advanced UI and animations.</p>
-
-<div class="project-links">
- <a href="https://www.lyyvora.com" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://lyyvora.com" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
-</div>
-
- <!-- 6 Complaint Portal -->
-<div class="project-card">
-<div class="project-img">
- <img src="https://i.pinimg.com/originals/fd/ed/17/fded1765432df670e8dce05020ad58a1.gif" alt="Complaint Portal">
-</div>
-<div class="project-content">
-<h3>Complaint Portal</h3>
-<p>Full-stack complaint management system with authentication & database.</p>
-
-<div class="project-links">
- <a href="https://github.com/MARIAHUSSAIN123/complain-portal.git" target="_blank" class="btn">GitHub Repo</a>
-<a href="https://complain-portal-eight.vercel.app/" target="_blank" class="btn">Live Demo</a>
-</div>
-</div>
- </div>
-
+  <section id="projects" class="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-container reveal">
+      
+      <div class="project-card ai-card">
+        <div class="project-img">
+          <span class="ai-tag">AI Powered</span>
+          <img src="my (1).png.jfif" alt="AI Project">
+        </div>
+        <div class="project-content">
+          <h3>Neural Search Engine</h3>
+          <p>An intelligent document search engine utilizing transformer models and vector indexing.</p>
+          <div class="project-links">
+            <a href="#" class="btn-primary">Demo</a>
+          </div>
+        </div>
+      </div>
 
       <div class="project-card">
-<div class="project-img">
-<img src="https://i.pinimg.com/originals/7c/64/75/7c64754724c03d17faca37c5d102f760.gif" alt="Travel system">
-</div>
- <div class="project-content">
- <h3>Client Project</h3>
-<p>fully functional frontent and backend booking travel system.</p>
-
- <div class="project-links">
- <a href="https://github.com/MARIAHUSSAIN123/deluxetravelexpress" target="_blank" class="btn">GitHub Repo</a>
-<a href="www.deluxetravelexpress.com" target="_blank" class="btn">Live Demo</a>
- </div>
-</div>
-</div>
-
-</div>
-</section>
-<section class="services reveal" id="services">
-    <h2 class="section-title">My Services</h2>
-
-    <div class="services-container">
-
-        <!-- 1 Web Development -->
-        <div class="service-card">
-            <div class="service-icon">
-                <i class="fas fa-code"></i>
-            </div>
-            <h3>Web Development</h3>
-            <p>Responsive modern websites using MERN stack & latest web technologies.</p>
+        <div class="project-img">
+          <img src="my2 (2).png.jfif" alt="Web Application Project">
         </div>
-
-        <!-- 2 App Development -->
-        <div class="service-card">
-            <div class="service-icon">
-                <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h3>App Development</h3>
-            <p>Cross-platform apps with smooth UI/UX and optimal performance.</p>
+        <div class="project-content">
+          <h3>Analytics Dashboard</h3>
+          <p>A full-stack interactive dashboard for enterprise data visualization and real-time reporting.</p>
+          <div class="project-links">
+            <a href="#" class="btn-primary">View</a>
+          </div>
         </div>
-
-        <!-- 3 UI/UX Design -->
-        <div class="service-card">
-            <div class="service-icon">
-                <i class="fas fa-globe"></i>
-            </div>
-            <h3>UI/UX Design</h3>
-            <p>Intuitive interfaces and engaging experiences for web & mobile.</p>
-        </div>
-
-        <!-- 4 Content Creator -->
-        <div class="service-card">
-            <div class="service-icon">
-                <i class="fas fa-video"></i>
-            </div>
-            <h3>Content Creator</h3>
-            <p>Creative digital content for brands, social media & marketing campaigns.</p>
-        </div>
-
-        <!-- 5 Graphic Design -->
-        <div class="service-card">
-            <div class="service-icon">
-                <i class="fas fa-palette"></i>
-            </div>
-            <h3>Graphic Design</h3>
-            <p>Professional branding, social media posts, logos & visual identity design.</p>
-        </div>
+      </div>
 
     </div>
-</section>
-<section class="experience reveal" id="experience">
-    <div class="experience-wrapper">
+  </section>
 
-        <!-- LEFT STATS -->
-        <div class="experience-stats">
-            <div class="stat">
-                <h1 class="counter" data-target="4">0</h1>
-                <p>Clients</p>
-            </div>
-
-            <div class="stat">
-                <h1 class="counter" data-target="10">0</h1>
-                <p>Projects</p>
-            </div>
-
-            <div class="stat">
-                <h1 class="counter" data-target="2">0</h1>
-                <p>Years Experience</p>
-            </div>
-        </div>
-
-        <!-- RIGHT TIMELINE -->
-        <div class="experience-timeline">
-
-            <div class="exp-card">
-                <span class="dot"></span>
-                <h3>frontend Internship</h3>
-                <h4>Internee.pk</h4>
-                <p>
-                    Did internship of frontend and backend development and worked on real world projects using Mern stack
-                </p>
-            </div>
-
-            <div class="exp-card">
-                <span class="dot"></span>
-                <h3>canadian client project</h3>
-                <h4>lyyvora.com</h4>
-                <p>
-                    work on a project for a canadian client and built a fully functional website with custom design and animations
-                </p>
-            </div>
-
-            <div class="exp-card">
-                <span class="dot"></span>
-                <h3>Travel Booking Platform</h3>
-                <h4>deluxetravelexpress.com</h4>
-                <p>
-                    Built a fully functional travel booking system from scratch, frontend and backend, for a client - complete with a smooth booking flow and a clean, trustworthy design.
-                </p>
-            </div>
-
-            <div class="exp-card">
-                <span class="dot"></span>
-                <h3>Canadian client project</h3>
-                <h4>masterprocleaning.ca</h4>
-                <p>
-                    Designed and developed a professional service website for a Canadian cleaning company, with responsive layout, service listings and an easy-to-use booking form.
-                </p>
-            </div>
-
-            <div class="exp-card">
-                <span class="dot"></span>
-                <h3>Online AI & Web/App Instructor</h3>
-                <h4>Freelance</h4>
-                <p>
-                    Teaching AI, web development and app development online, helping students build real projects and understand concepts from the ground up.
-                </p>
-            </div>
-
-            <div class="exp-card">
-                <span class="dot"></span>
-                <h3>Teaching Assistant - Web & App Development</h3>
-                <h4>Numaish Campus</h4>
-                <p>
-                    1 year of experience as a teaching assistant, supporting students with web and app development coursework, labs and project guidance.
-                </p>
-            </div>
-
-        </div>
-
+  <section id="services" class="services">
+    <h2 class="section-title">Services</h2>
+    <div class="services-container reveal">
+      <div class="service-card">
+        <i class="fa-solid fa-brain service-icon"></i>
+        <h3>AI & ML Solutions</h3>
+        <p>Designing predictive models and integrating custom artificial intelligence into web platforms.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-code service-icon"></i>
+        <h3>Web Development</h3>
+        <p>Creating highly responsive, scalable, and fast web applications using clean architecture.</p>
+      </div>
     </div>
-</section>
-<section class="contact reveal" id="contact">
+  </section>
 
-    <div class="contact-container">
-
-        <h2 class="section-title">Contact <span>Me</span></h2>
-
-        <div class="contact-wrapper">
-
-            <!-- LEFT INFO -->
-            <div class="contact-info">
-                <h3>Let’s Work Together</h3>
-                <p>
-                    Have a project in mind or want to collaborate? 
-                    Feel free to reach out. I'm always open to discussing new opportunities.
-                </p>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>mariahussain021@gmail.com</span>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+92 335 2374683</span>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Karachi, Pakistan</span>
-                </div>
-            </div>
-
-            <!-- RIGHT FORM -->
-            <form class="contact-form">
-
-                <div class="input-group">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-
-                <input type="text" placeholder="Subject" required>
-
-                <textarea rows="6" placeholder="Your Message"></textarea>
-
-                <button type="submit" class="contact-btn">Send Message</button>
-
-            </form>
-
+  <section id="experience" class="experience">
+    <div class="experience-wrapper reveal">
+      <div class="experience-stats">
+        <div class="stat">
+          <h1 class="counter" data-target="15">0</h1>
+          <p>Completed Projects</p>
         </div>
-
+        <div class="stat">
+          <h1 class="counter" data-target="3">0</h1>
+          <p>Years Experience</p>
+        </div>
+      </div>
+      <div class="experience-timeline">
+        <div class="exp-card">
+          <div class="dot"></div>
+          <h3>AI Data Scientist</h3>
+          <h4>Freelance / Remote</h4>
+          <p>Developing automated pipeline systems, analyzing complex data structures, and deploying AI models.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-</section>
-<footer class="footer">
+  <section id="contact" class="contact">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="contact-wrapper reveal">
+      <div class="contact-info">
+        <h3>Let's collaborate</h3>
+        <p>Feel free to reach out if you have a project in mind, need technical advice, or just want to connect.</p>
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>maria@example.com</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault();">
+        <div class="input-group">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+        </div>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="contact-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
 
+  <div class="chat-toggle" onclick="toggleChat()">
+    <i class="fa-solid fa-comments"></i>
+  </div>
+  <div class="chatbox" id="chatbox">
+    <div class="chat-header">
+      <span>Live Assistant</span>
+      <span style="cursor:pointer;" onclick="toggleChat()">&times;</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="bot-msg">Hi! How can I assist you today?</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="userInput" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top-line"></div>
     <div class="footer-container">
- <div class="footer-left">
-        <h3>Maria Hussain</h3>
-        <p>Web & App Developer | Freeelancer | MERN Stack Developer</p>
-
-       
-</div>
- <div class="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+      <div class="footer-left">
+        <div class="footer-logo">Maria<span>.</span></div>
+        <p>AI Data Scientist & Full Stack Developer creating digital solutions.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-         <div class="footer-social">
-            <h4>Connect With Me</h4>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/maria-hussain-b53246306?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fa-brands fa-linkedin"></i>L</a>
-                <a href="https://github.com/MARIAHUSSAIN123"><i class="fa-brands fa-github"></i>G</a>
-                <a href="#"><i class="fa-brands fa-instagram"></i>i</a>
-            </div>
-        </div>
-        <p class="copyright">
-            © 2026 Maria Hussain | All Rights Reserved
-        </p>
-
+      </div>
     </div>
+    <div class="footer-bottom">
+      &copy; 2026 Maria. All rights reserved.
+    </div>
+  </footer>
 
-</footer>
-
-
-
-<div class="cursor-glow"></div>
-
-<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-<script src="script.js"></script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="script.js"></script>
 </body>
 </html>
