@@ -603,7 +603,7 @@ You are representing Maria's professional portfolio.
 
                 body: JSON.stringify({
 
-                   model: "llama-3.1-8b-instant",
+                   model: "openai/gpt-oss-120b",
 
                     messages: [
 
