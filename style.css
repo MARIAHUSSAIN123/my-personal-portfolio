@@ -2465,3 +2465,89 @@ header{
     font-size: 14px;
   }
 }
+/* ================= CHAT MOBILE FIX ================= */
+
+.chat-footer {
+    width: 100%;
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.chat-footer input {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 0;
+    padding: 12px 10px;
+    box-sizing: border-box;
+}
+
+.chat-footer button {
+    flex: 0 0 75px;
+    width: 75px;
+    min-width: 75px;
+    padding: 12px 8px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+/* ================= MOBILE CHAT ================= */
+
+@media (max-width: 480px) {
+
+    .chatbox {
+        width: calc(100% - 30px);
+        max-width: none;
+        right: 15px;
+        left: 15px;
+        bottom: 85px;
+        border-radius: 18px;
+    }
+
+    .chat-body {
+        height: 250px;
+        padding: 12px;
+    }
+
+    .chat-footer {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .chat-footer input {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: 0;
+        font-size: 14px;
+        padding: 12px 10px;
+    }
+
+    .chat-footer button {
+        flex: 0 0 70px;
+        width: 70px;
+        min-width: 70px;
+        padding: 12px 6px;
+        font-size: 14px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+
+    .chatbox {
+        width: calc(100% - 20px);
+        right: 10px;
+        left: 10px;
+    }
+
+    .chat-footer button {
+        flex-basis: 65px;
+        width: 65px;
+        min-width: 65px;
+        font-size: 13px;
+    }
+
+    .chat-footer input {
+        font-size: 13px;
+    }
+}
