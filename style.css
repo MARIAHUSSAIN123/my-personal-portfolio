@@ -2425,3 +2425,43 @@ header{
         display:none;
     }
 }
+.chat-input {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.chat-input input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chat-input button {
+  flex: 0 0 auto;
+  width: 90px;
+  min-width: 90px;
+  box-sizing: border-box;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .chat-input {
+    width: 100%;
+  }
+
+  .chat-input input {
+    min-width: 0;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+
+  .chat-input button {
+    width: 75px;
+    min-width: 75px;
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+}
