@@ -1,16 +1,37 @@
-// ===== TYPED TEXT =====
-var typed = new Typed(".typed-text", {
-    strings: [
-        "AI Data Scientist",
-        "Full Stack Developer",
-        "Freelancer",
-        "Content Creator",
-        "Graphic Designer"
-    ],
-    typeSpeed: 70,
-    backSpeed: 40,
-    backDelay: 1500,
-    loop: true
+// =====================================================
+// ===== TYPED TEXT =====================================
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (typeof Typed !== "undefined") {
+
+        const typedElement =
+            document.querySelector(".typed-text");
+
+        if (typedElement) {
+
+            new Typed(".typed-text", {
+
+                strings: [
+                    "AI Data Scientist",
+                    "Full Stack Developer",
+                    "Freelancer",
+                    "Content Creator",
+                    "Graphic Designer"
+                ],
+
+                typeSpeed: 70,
+                backSpeed: 40,
+                backDelay: 1500,
+                loop: true
+
+            });
+
+        }
+
+    }
+
 });
 
 
@@ -18,8 +39,12 @@ var typed = new Typed(".typed-text", {
 // ACTIVE NAV LINK ON SCROLL
 // =====================================================
 
-const sections = document.querySelectorAll("section");
-const navLinksScroll = document.querySelectorAll(".nav-links a");
+const sections =
+    document.querySelectorAll("section");
+
+const navLinksScroll =
+    document.querySelectorAll(".nav-links a");
+
 
 window.addEventListener("scroll", () => {
 
@@ -27,20 +52,32 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop =
+            section.offsetTop - 100;
 
-        if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
+        if (
+            window.pageYOffset >= sectionTop
+        ) {
+
+            current =
+                section.getAttribute("id");
+
         }
 
     });
+
 
     navLinksScroll.forEach(link => {
 
         link.classList.remove("active");
 
-        if (link.getAttribute("href") === "#" + current) {
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+
             link.classList.add("active");
+
         }
 
     });
@@ -52,48 +89,76 @@ window.addEventListener("scroll", () => {
 // SKILL RING ANIMATION
 // =====================================================
 
-const RING_CIRCUMFERENCE = 326.7256;
+const RING_CIRCUMFERENCE =
+    326.7256;
 
-const skillCards = document.querySelectorAll(".skill-card");
 
-const ringObserver = new IntersectionObserver((entries) => {
+const skillCards =
+    document.querySelectorAll(".skill-card");
 
-    entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
+if ("IntersectionObserver" in window) {
 
-            const card = entry.target;
+    const ringObserver =
+        new IntersectionObserver(
+            (entries) => {
 
-            const percent =
-                +card.getAttribute("data-percent");
+                entries.forEach(entry => {
 
-            const ring =
-                card.querySelector(".ring-fg");
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-            if (ring) {
+                    const card =
+                        entry.target;
 
-                const offset =
-                    RING_CIRCUMFERENCE -
-                    (RING_CIRCUMFERENCE * percent / 100);
+                    const percent =
+                        Number(
+                            card.getAttribute(
+                                "data-percent"
+                            )
+                        );
 
-                ring.style.strokeDashoffset = offset;
+                    const ring =
+                        card.querySelector(
+                            ".ring-fg"
+                        );
 
+                    if (ring) {
+
+                        const offset =
+                            RING_CIRCUMFERENCE -
+                            (
+                                RING_CIRCUMFERENCE *
+                                percent /
+                                100
+                            );
+
+                        ring.style.strokeDashoffset =
+                            offset;
+
+                    }
+
+                    ringObserver.unobserve(
+                        card
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.4
             }
+        );
 
-            ringObserver.unobserve(card);
 
-        }
+    skillCards.forEach(card => {
+
+        ringObserver.observe(card);
 
     });
 
-}, {
-    threshold: 0.4
-});
-
-
-skillCards.forEach(card => {
-    ringObserver.observe(card);
-});
+}
 
 
 // =====================================================
@@ -103,29 +168,45 @@ skillCards.forEach(card => {
 const revealEls =
     document.querySelectorAll(".reveal");
 
-const revealObserver =
-    new IntersectionObserver((entries) => {
 
-        entries.forEach(entry => {
+if ("IntersectionObserver" in window) {
 
-            if (entry.isIntersecting) {
+    const revealObserver =
+        new IntersectionObserver(
+            (entries) => {
 
-                entry.target.classList.add("in-view");
+                entries.forEach(entry => {
 
-                revealObserver.unobserve(entry.target);
+                    if (
+                        entry.isIntersecting
+                    ) {
 
+                        entry.target.classList.add(
+                            "in-view"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
             }
+        );
 
-        });
 
-    }, {
-        threshold: 0.12
+    revealEls.forEach(el => {
+
+        revealObserver.observe(el);
+
     });
 
-
-revealEls.forEach(el => {
-    revealObserver.observe(el);
-});
+}
 
 
 // =====================================================
@@ -133,47 +214,65 @@ revealEls.forEach(el => {
 // =====================================================
 
 const tiltCards =
-    document.querySelectorAll(".project-card");
+    document.querySelectorAll(
+        ".project-card"
+    );
+
 
 tiltCards.forEach(card => {
 
-    card.addEventListener("mousemove", (e) => {
+    card.addEventListener(
+        "mousemove",
+        event => {
 
-        const rect =
-            card.getBoundingClientRect();
+            const rect =
+                card.getBoundingClientRect();
 
-        const x =
-            e.clientX - rect.left;
+            const x =
+                event.clientX -
+                rect.left;
 
-        const y =
-            e.clientY - rect.top;
+            const y =
+                event.clientY -
+                rect.top;
 
-        const centerX =
-            rect.width / 2;
+            const centerX =
+                rect.width / 2;
 
-        const centerY =
-            rect.height / 2;
+            const centerY =
+                rect.height / 2;
 
-        const rotateX =
-            ((y - centerY) / centerY) * -6;
+            const rotateX =
+                ((y - centerY) /
+                    centerY) *
+                -6;
 
-        const rotateY =
-            ((x - centerX) / centerX) * 6;
-
-        card.style.transform =
-            `translateY(-10px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)`;
-
-    });
+            const rotateY =
+                ((x - centerX) /
+                    centerX) *
+                6;
 
 
-    card.addEventListener("mouseleave", () => {
+            card.style.transform =
+                `
+                translateY(-10px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                `;
 
-        card.style.transform =
-            "translateY(0) rotateX(0) rotateY(0)";
+        }
+    );
 
-    });
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform =
+                "translateY(0) rotateX(0) rotateY(0)";
+
+        }
+    );
 
 });
 
@@ -183,21 +282,25 @@ tiltCards.forEach(card => {
 // =====================================================
 
 const glow =
-    document.querySelector(".cursor-glow");
+    document.querySelector(
+        ".cursor-glow"
+    );
 
-document.addEventListener("mousemove", (e) => {
 
-    if (glow) {
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        if (!glow) return;
 
         glow.style.left =
-            e.clientX + "px";
+            event.clientX + "px";
 
         glow.style.top =
-            e.clientY + "px";
+            event.clientY + "px";
 
     }
-
-});
+);
 
 
 // =====================================================
@@ -205,92 +308,127 @@ document.addEventListener("mousemove", (e) => {
 // =====================================================
 
 const counters =
-    document.querySelectorAll(".counter");
+    document.querySelectorAll(
+        ".counter"
+    );
 
 
-const counterObserver =
-    new IntersectionObserver((entries) => {
+if ("IntersectionObserver" in window) {
 
-        entries.forEach(entry => {
+    const counterObserver =
+        new IntersectionObserver(
+            entries => {
 
-            if (!entry.isIntersecting) {
-                return;
-            }
+                entries.forEach(entry => {
 
-            const counter =
-                entry.target;
-
-            const target =
-                +counter.getAttribute("data-target");
-
-            let current = 0;
-
-            const duration = 1300;
-
-            const startTime =
-                performance.now();
+                    if (
+                        !entry.isIntersecting
+                    ) {
+                        return;
+                    }
 
 
-            const animateCounter = (now) => {
+                    const counter =
+                        entry.target;
 
-                const progress =
-                    Math.min(
-                        (now - startTime) / duration,
-                        1
-                    );
+                    const target =
+                        Number(
+                            counter.getAttribute(
+                                "data-target"
+                            )
+                        );
 
+                    const duration =
+                        1300;
 
-                const eased =
-                    1 - Math.pow(1 - progress, 3);
-
-
-                current =
-                    Math.ceil(target * eased);
-
-
-                counter.innerText =
-                    current;
+                    const startTime =
+                        performance.now();
 
 
-                if (progress < 1) {
+                    const animateCounter =
+                        currentTime => {
+
+                            const progress =
+                                Math.min(
+                                    (
+                                        currentTime -
+                                        startTime
+                                    ) /
+                                    duration,
+                                    1
+                                );
+
+
+                            const eased =
+                                1 -
+                                Math.pow(
+                                    1 - progress,
+                                    3
+                                );
+
+
+                            const current =
+                                Math.ceil(
+                                    target *
+                                    eased
+                                );
+
+
+                            counter.innerText =
+                                current;
+
+
+                            if (
+                                progress < 1
+                            ) {
+
+                                requestAnimationFrame(
+                                    animateCounter
+                                );
+
+                            } else {
+
+                                counter.innerText =
+                                    target;
+
+                            }
+
+                        };
+
+
+                    counter.innerText =
+                        "0";
+
 
                     requestAnimationFrame(
                         animateCounter
                     );
 
-                } else {
 
-                    counter.innerText =
-                        target;
+                    counterObserver.unobserve(
+                        counter
+                    );
 
-                }
+                });
 
-            };
+            },
+            {
+                threshold: 0.5
+            }
+        );
 
 
-            requestAnimationFrame(
-                animateCounter
-            );
+    counters.forEach(counter => {
 
+        counter.innerText = "0";
 
-            counterObserver.unobserve(
-                counter
-            );
+        counterObserver.observe(
+            counter
+        );
 
-        });
-
-    }, {
-        threshold: 0.5
     });
 
-
-counters.forEach(counter => {
-
-    counter.innerText = "0";
-
-    counterObserver.observe(counter);
-
-});
+}
 
 
 // =====================================================
@@ -299,190 +437,313 @@ counters.forEach(counter => {
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
+    () => {
 
         const toggle =
-            document.querySelector(".menu-toggle");
+            document.querySelector(
+                ".menu-toggle"
+            );
 
         const nav =
-            document.querySelector(".nav-links");
-
-
-        if (toggle && nav) {
-
-            toggle.addEventListener(
-                "click",
-                function () {
-
-                    nav.classList.toggle("active");
-
-                    toggle.classList.toggle("active");
-
-                }
+            document.querySelector(
+                ".nav-links"
             );
 
 
-            // Close mobile menu
-            // after clicking a link
-
-            nav.querySelectorAll("a")
-                .forEach(link => {
-
-                    link.addEventListener(
-                        "click",
-                        () => {
-
-                            nav.classList.remove(
-                                "active"
-                            );
-
-                            toggle.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-                });
-
+        if (!toggle || !nav) {
+            return;
         }
+
+
+        toggle.addEventListener(
+            "click",
+            () => {
+
+                nav.classList.toggle(
+                    "active"
+                );
+
+                toggle.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+        nav.querySelectorAll("a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        nav.classList.remove(
+                            "active"
+                        );
+
+                        toggle.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            });
 
     }
 );
 
 
 // =====================================================
-// CHATBOT
+// 🤖 MARIA AI PORTFOLIO CHATBOT
+// =====================================================
+
+let chatHistory = [];
+
+
+// =====================================================
+// OPEN / CLOSE CHAT
 // =====================================================
 
 function toggleChat() {
 
     const chat =
-        document.getElementById("chatbox");
+        document.getElementById(
+            "chatbox"
+        );
 
-    if (!chat) return;
+
+    if (!chat) {
+        return;
+    }
 
 
-    chat.style.display =
-        chat.style.display === "flex"
-            ? "none"
-            : "flex";
+    const isOpen =
+        chat.style.display === "flex";
+
+
+    if (isOpen) {
+
+        chat.style.display =
+            "none";
+
+    } else {
+
+        chat.style.display =
+            "flex";
+
+
+        setTimeout(() => {
+
+            const input =
+                document.getElementById(
+                    "userInput"
+                );
+
+            if (input) {
+
+                input.focus();
+
+            }
+
+        }, 100);
+
+    }
 
 }
 
 
 // =====================================================
-// 🤖 MARIA AI PORTFOLIO CHATBOT
+// SEND CHAT MESSAGE
 // =====================================================
-
-// =====================================================
-// 🤖 MARIA AI CHATBOT
-// =====================================================
-
-let chatHistory = [];
 
 async function sendMessage() {
 
-    const input = document.getElementById("userInput");
-    const chatBody = document.getElementById("chatBody");
+    const input =
+        document.getElementById(
+            "userInput"
+        );
 
-    if (!input || !chatBody) return;
+    const chatBody =
+        document.getElementById(
+            "chatBody"
+        );
 
-    const message = input.value.trim();
 
-    if (!message) return;
+    if (!input || !chatBody) {
+        return;
+    }
+
+
+    const message =
+        input.value.trim();
+
+
+    if (!message) {
+        return;
+    }
+
 
     // Prevent multiple requests
-    if (input.disabled) return;
+    if (input.disabled) {
+        return;
+    }
 
-    // ================= USER MESSAGE =================
 
-    const userMsg = document.createElement("div");
+    // =================================================
+    // USER MESSAGE
+    // =================================================
 
-    userMsg.classList.add("user-msg");
+    const userMsg =
+        document.createElement(
+            "div"
+        );
 
-    userMsg.innerText = message;
 
-    chatBody.appendChild(userMsg);
+    userMsg.classList.add(
+        "user-msg"
+    );
+
+
+    userMsg.innerText =
+        message;
+
+
+    chatBody.appendChild(
+        userMsg
+    );
+
 
     input.value = "";
 
     input.disabled = true;
 
-    chatBody.scrollTop = chatBody.scrollHeight;
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
 
 
-    // ================= AI LOADING =================
+    // =================================================
+    // AI THINKING
+    // =================================================
 
-    const botMsg = document.createElement("div");
+    const botMsg =
+        document.createElement(
+            "div"
+        );
 
-    botMsg.classList.add("bot-msg");
 
-    botMsg.innerText = "✨ Thinking...";
+    botMsg.classList.add(
+        "bot-msg"
+    );
 
-    chatBody.appendChild(botMsg);
 
-    chatBody.scrollTop = chatBody.scrollHeight;
+    botMsg.innerText =
+        "✨ Thinking...";
 
+
+    chatBody.appendChild(
+        botMsg
+    );
+
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+
+
+    // =================================================
+    // CALL VERCEL API
+    // =================================================
 
     try {
 
-        // ================= SEND TO VERCEL API =================
+        const response =
+            await fetch(
+                "/api/chat",
+                {
 
-        const response = await fetch("/api/chat", {
+                    method: "POST",
 
-            method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+                    body: JSON.stringify({
 
-            body: JSON.stringify({
+                        message:
+                            message,
 
-                message: message,
+                        history:
+                            chatHistory
 
-                // Previous conversation
-                history: chatHistory
+                    })
 
-            })
-
-        });
-
-
-        const data = await response.json();
-
-        console.log("AI RESPONSE:", data);
+                }
+            );
 
 
-        // ================= ERROR =================
-
-        if (!response.ok || !data.success) {
+        // Check HTTP response
+        if (!response.ok) {
 
             throw new Error(
-                data.message ||
+                `HTTP Error: ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "AI RESPONSE:",
+            data
+        );
+
+
+        // =================================================
+        // CHECK API RESPONSE
+        // =================================================
+
+        if (
+            !data ||
+            !data.success
+        ) {
+
+            throw new Error(
+                data?.message ||
                 "AI service unavailable"
             );
 
         }
 
 
-        // ================= AI RESPONSE =================
+        // =================================================
+        // SHOW AI RESPONSE
+        // =================================================
 
         const reply =
             data.reply ||
             "Sorry, I couldn't generate a response.";
 
 
-        botMsg.innerText = reply;
+        botMsg.innerText =
+            reply;
 
 
-        // ================= SAVE HISTORY =================
+        // =================================================
+        // SAVE CHAT HISTORY
+        // =================================================
 
         chatHistory.push({
 
             role: "user",
 
-            content: message
+            content:
+                message
 
         });
 
@@ -491,16 +752,21 @@ async function sendMessage() {
 
             role: "assistant",
 
-            content: reply
+            content:
+                reply
 
         });
 
 
         // Keep last 12 messages
-        if (chatHistory.length > 12) {
+        if (
+            chatHistory.length > 12
+        ) {
 
             chatHistory =
-                chatHistory.slice(-12);
+                chatHistory.slice(
+                    -12
+                );
 
         }
 
@@ -512,57 +778,30 @@ async function sendMessage() {
             error
         );
 
+
         botMsg.innerText =
             "⚠️ Sorry, I'm having trouble connecting to the AI right now.";
 
     }
 
 
-    // ================= ENABLE INPUT =================
+    // =================================================
+    // ENABLE INPUT
+    // =================================================
 
     input.disabled = false;
 
     input.focus();
 
-    chatBody.scrollTop =
-        chatBody.scrollHeight;
-}
-
-
-        const data = await response.json();
-
-        console.log("AI RESPONSE:", data);
-
-
-        if (data.success) {
-
-            botMsg.innerText = data.reply;
-
-        } else {
-
-            botMsg.innerText =
-                data.message ||
-                "Sorry, I couldn't answer that.";
-
-        }
-
-
-    } catch (error) {
-
-        console.error("CHAT ERROR:", error);
-
-        botMsg.innerText =
-            "⚠️ Unable to connect to AI assistant.";
-
-    }
-
 
     chatBody.scrollTop =
         chatBody.scrollHeight;
+
 }
+
 
 // =====================================================
-// ENTER KEY FOR CHAT
+// ENTER KEY
 // =====================================================
 
 document.addEventListener(
@@ -575,24 +814,28 @@ document.addEventListener(
             );
 
 
-        if (input) {
+        if (!input) {
+            return;
+        }
 
-            input.addEventListener(
-                "keydown",
-                (event) => {
 
-                    if (event.key === "Enter") {
+        input.addEventListener(
+            "keydown",
+            event => {
 
-                        event.preventDefault();
+                if (
+                    event.key === "Enter" &&
+                    !event.shiftKey
+                ) {
 
-                        sendMessage();
+                    event.preventDefault();
 
-                    }
+                    sendMessage();
 
                 }
-            );
 
-        }
+            }
+        );
 
     }
 );
@@ -604,36 +847,39 @@ document.addEventListener(
 
 function createRain() {
 
-    // Reduced motion users ke liye
-    // rain disable
-
+    // Respect reduced motion
     if (
         window.matchMedia(
             "(prefers-reduced-motion: reduce)"
         ).matches
     ) {
+
         return;
+
     }
 
 
-    // Duplicate rain prevent
-
+    // Prevent duplicate rain
     if (
         document.querySelector(
             ".rain-layer"
         )
     ) {
+
         return;
+
     }
 
 
-    // Rain container
-
     const rain =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     rain.className =
         "rain-layer";
+
 
     rain.setAttribute(
         "aria-hidden",
@@ -641,9 +887,7 @@ function createRain() {
     );
 
 
-    // Mobile par kam drops
-    // Desktop par zyada
-
+    // Rain drops
     const dropCount =
         window.innerWidth < 700
             ? 55
@@ -670,31 +914,25 @@ function createRain() {
             "rain-drop";
 
 
-        // Random size
-
         const height =
             35 +
             Math.random() * 95;
 
 
-        // Random position
-
         const left =
             Math.random() * 110;
 
-
-        // Random speed
 
         const duration =
             3.2 +
             Math.random() * 4.8;
 
 
-        // Negative delay means
-        // rain immediately moving
-
         const delay =
-            -(Math.random() * duration);
+            -(
+                Math.random() *
+                duration
+            );
 
 
         drop.style.left =
@@ -760,14 +998,19 @@ if (
 
 
 // =====================================================
-// HERO MOUSE PARALLAX
+// HERO PARALLAX
 // =====================================================
 
 const hero =
-    document.querySelector(".hero");
+    document.querySelector(
+        ".hero"
+    );
+
 
 const aurora =
-    document.querySelector(".aurora");
+    document.querySelector(
+        ".aurora"
+    );
 
 
 if (
@@ -778,31 +1021,40 @@ if (
     ).matches
 ) {
 
-
     hero.addEventListener(
         "mousemove",
-        (e) => {
+        event => {
 
             const rect =
                 hero.getBoundingClientRect();
 
 
             const x =
-                (e.clientX - rect.left)
-                / rect.width - 0.5;
+                (
+                    event.clientX -
+                    rect.left
+                ) /
+                rect.width -
+                0.5;
 
 
             const y =
-                (e.clientY - rect.top)
-                / rect.height - 0.5;
+                (
+                    event.clientY -
+                    rect.top
+                ) /
+                rect.height -
+                0.5;
 
 
             aurora.style.transform =
-                `translate3d(
+                `
+                translate3d(
                     ${x * 18}px,
                     ${y * 18}px,
                     0
-                )`;
+                )
+                `;
 
         }
     );
@@ -841,12 +1093,30 @@ document.querySelectorAll(
         (child, index) => {
 
             child.style.transitionDelay =
-                `${Math.min(
+                `
+                ${Math.min(
                     index * 70,
                     420
-                )}ms`;
+                )}ms
+                `;
 
         }
     );
 
 });
+
+
+// =====================================================
+// PAGE LOADED
+// =====================================================
+
+window.addEventListener(
+    "load",
+    () => {
+
+        document.body.classList.add(
+            "page-loaded"
+        );
+
+    }
+);
