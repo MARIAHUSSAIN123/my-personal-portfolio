@@ -375,6 +375,12 @@ function toggleChat() {
 // 🤖 MARIA AI PORTFOLIO CHATBOT
 // =====================================================
 
+// =====================================================
+// 🤖 MARIA AI CHATBOT
+// =====================================================
+
+let chatHistory = [];
+
 async function sendMessage() {
 
     const input = document.getElementById("userInput");
@@ -386,8 +392,11 @@ async function sendMessage() {
 
     if (!message) return;
 
+    // Prevent multiple requests
+    if (input.disabled) return;
 
-    // USER MESSAGE
+    // ================= USER MESSAGE =================
+
     const userMsg = document.createElement("div");
 
     userMsg.classList.add("user-msg");
@@ -398,10 +407,13 @@ async function sendMessage() {
 
     input.value = "";
 
+    input.disabled = true;
+
     chatBody.scrollTop = chatBody.scrollHeight;
 
 
-    // AI LOADING MESSAGE
+    // ================= AI LOADING =================
+
     const botMsg = document.createElement("div");
 
     botMsg.classList.add("bot-msg");
@@ -415,6 +427,8 @@ async function sendMessage() {
 
     try {
 
+        // ================= SEND TO VERCEL API =================
+
         const response = await fetch("/api/chat", {
 
             method: "POST",
@@ -424,10 +438,95 @@ async function sendMessage() {
             },
 
             body: JSON.stringify({
-                message: message
+
+                message: message,
+
+                // Previous conversation
+                history: chatHistory
+
             })
 
         });
+
+
+        const data = await response.json();
+
+        console.log("AI RESPONSE:", data);
+
+
+        // ================= ERROR =================
+
+        if (!response.ok || !data.success) {
+
+            throw new Error(
+                data.message ||
+                "AI service unavailable"
+            );
+
+        }
+
+
+        // ================= AI RESPONSE =================
+
+        const reply =
+            data.reply ||
+            "Sorry, I couldn't generate a response.";
+
+
+        botMsg.innerText = reply;
+
+
+        // ================= SAVE HISTORY =================
+
+        chatHistory.push({
+
+            role: "user",
+
+            content: message
+
+        });
+
+
+        chatHistory.push({
+
+            role: "assistant",
+
+            content: reply
+
+        });
+
+
+        // Keep last 12 messages
+        if (chatHistory.length > 12) {
+
+            chatHistory =
+                chatHistory.slice(-12);
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "CHAT ERROR:",
+            error
+        );
+
+        botMsg.innerText =
+            "⚠️ Sorry, I'm having trouble connecting to the AI right now.";
+
+    }
+
+
+    // ================= ENABLE INPUT =================
+
+    input.disabled = false;
+
+    input.focus();
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+}
 
 
         const data = await response.json();
