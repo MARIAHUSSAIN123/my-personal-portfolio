@@ -822,3 +822,38 @@ skills and direct them to her contact information.
     }
 
 }
+// =====================================================
+// 🔊 AI VOICE
+// =====================================================
+
+function speakReply(text) {
+
+    if (!("speechSynthesis" in window)) {
+        console.log("Speech synthesis not supported");
+        return;
+    }
+
+    // Agar pehle se koi voice chal rahi ho to stop
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    // Available voices mein English voice dhoondo
+    const voices = window.speechSynthesis.getVoices();
+
+    const voice =
+        voices.find(v => v.lang === "en-US") ||
+        voices.find(v => v.lang.startsWith("en")) ||
+        voices[0];
+
+    if (voice) {
+        utterance.voice = voice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+}
