@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (typeof Typed !== "undefined") {
 
-        const typedElement =
-            document.querySelector(".typed-text");
+        const typedElement = document.querySelector(".typed-text");
 
         if (typedElement) {
 
@@ -39,12 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ACTIVE NAV LINK ON SCROLL
 // =====================================================
 
-const sections =
-    document.querySelectorAll("section");
-
-const navLinksScroll =
-    document.querySelectorAll(".nav-links a");
-
+const sections = document.querySelectorAll("section");
+const navLinksScroll = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
 
@@ -52,32 +47,20 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop =
-            section.offsetTop - 100;
+        const sectionTop = section.offsetTop - 100;
 
-        if (
-            window.pageYOffset >= sectionTop
-        ) {
-
-            current =
-                section.getAttribute("id");
-
+        if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
         }
 
     });
-
 
     navLinksScroll.forEach(link => {
 
         link.classList.remove("active");
 
-        if (
-            link.getAttribute("href") ===
-            "#" + current
-        ) {
-
+        if (link.getAttribute("href") === "#" + current) {
             link.classList.add("active");
-
         }
 
     });
@@ -89,73 +72,51 @@ window.addEventListener("scroll", () => {
 // SKILL RING ANIMATION
 // =====================================================
 
-const RING_CIRCUMFERENCE =
-    326.7256;
-
-
-const skillCards =
-    document.querySelectorAll(".skill-card");
-
+const RING_CIRCUMFERENCE = 326.7256;
+const skillCards = document.querySelectorAll(".skill-card");
 
 if ("IntersectionObserver" in window) {
 
-    const ringObserver =
-        new IntersectionObserver(
-            (entries) => {
+    const ringObserver = new IntersectionObserver(
+        (entries) => {
 
-                entries.forEach(entry => {
+            entries.forEach(entry => {
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+                if (!entry.isIntersecting) return;
 
-                    const card =
-                        entry.target;
+                const card = entry.target;
 
-                    const percent =
-                        Number(
-                            card.getAttribute(
-                                "data-percent"
-                            )
+                const percent = Number(
+                    card.getAttribute("data-percent")
+                );
+
+                const ring = card.querySelector(".ring-fg");
+
+                if (ring) {
+
+                    const offset =
+                        RING_CIRCUMFERENCE -
+                        (
+                            RING_CIRCUMFERENCE *
+                            percent /
+                            100
                         );
 
-                    const ring =
-                        card.querySelector(
-                            ".ring-fg"
-                        );
+                    ring.style.strokeDashoffset = offset;
+                }
 
-                    if (ring) {
+                ringObserver.unobserve(card);
 
-                        const offset =
-                            RING_CIRCUMFERENCE -
-                            (
-                                RING_CIRCUMFERENCE *
-                                percent /
-                                100
-                            );
+            });
 
-                        ring.style.strokeDashoffset =
-                            offset;
-
-                    }
-
-                    ringObserver.unobserve(
-                        card
-                    );
-
-                });
-
-            },
-            {
-                threshold: 0.4
-            }
-        );
-
+        },
+        {
+            threshold: 0.4
+        }
+    );
 
     skillCards.forEach(card => {
-
         ringObserver.observe(card);
-
     });
 
 }
@@ -165,45 +126,35 @@ if ("IntersectionObserver" in window) {
 // SCROLL REVEAL
 // =====================================================
 
-const revealEls =
-    document.querySelectorAll(".reveal");
-
+const revealEls = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
 
-    const revealObserver =
-        new IntersectionObserver(
-            (entries) => {
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
 
-                entries.forEach(entry => {
+            entries.forEach(entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                if (entry.isIntersecting) {
 
-                        entry.target.classList.add(
-                            "in-view"
-                        );
+                    entry.target.classList.add("in-view");
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
+                    revealObserver.unobserve(
+                        entry.target
+                    );
 
-                    }
+                }
 
-                });
+            });
 
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
     revealEls.forEach(el => {
-
         revealObserver.observe(el);
-
     });
 
 }
@@ -214,65 +165,48 @@ if ("IntersectionObserver" in window) {
 // =====================================================
 
 const tiltCards =
-    document.querySelectorAll(
-        ".project-card"
-    );
-
+    document.querySelectorAll(".project-card");
 
 tiltCards.forEach(card => {
 
-    card.addEventListener(
-        "mousemove",
-        event => {
+    card.addEventListener("mousemove", event => {
 
-            const rect =
-                card.getBoundingClientRect();
+        const rect =
+            card.getBoundingClientRect();
 
-            const x =
-                event.clientX -
-                rect.left;
+        const x =
+            event.clientX - rect.left;
 
-            const y =
-                event.clientY -
-                rect.top;
+        const y =
+            event.clientY - rect.top;
 
-            const centerX =
-                rect.width / 2;
+        const centerX =
+            rect.width / 2;
 
-            const centerY =
-                rect.height / 2;
+        const centerY =
+            rect.height / 2;
 
-            const rotateX =
-                ((y - centerY) /
-                    centerY) *
-                -6;
+        const rotateX =
+            ((y - centerY) / centerY) * -6;
 
-            const rotateY =
-                ((x - centerX) /
-                    centerX) *
-                6;
+        const rotateY =
+            ((x - centerX) / centerX) * 6;
 
+        card.style.transform =
+            `
+            translateY(-10px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            `;
 
-            card.style.transform =
-                `
-                translateY(-10px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                `;
+    });
 
-        }
-    );
+    card.addEventListener("mouseleave", () => {
 
+        card.style.transform =
+            "translateY(0) rotateX(0) rotateY(0)";
 
-    card.addEventListener(
-        "mouseleave",
-        () => {
-
-            card.style.transform =
-                "translateY(0) rotateX(0) rotateY(0)";
-
-        }
-    );
+    });
 
 });
 
@@ -282,25 +216,19 @@ tiltCards.forEach(card => {
 // =====================================================
 
 const glow =
-    document.querySelector(
-        ".cursor-glow"
-    );
+    document.querySelector(".cursor-glow");
 
+document.addEventListener("mousemove", event => {
 
-document.addEventListener(
-    "mousemove",
-    event => {
+    if (!glow) return;
 
-        if (!glow) return;
+    glow.style.left =
+        event.clientX + "px";
 
-        glow.style.left =
-            event.clientX + "px";
+    glow.style.top =
+        event.clientY + "px";
 
-        glow.style.top =
-            event.clientY + "px";
-
-    }
-);
+});
 
 
 // =====================================================
@@ -308,10 +236,7 @@ document.addEventListener(
 // =====================================================
 
 const counters =
-    document.querySelectorAll(
-        ".counter"
-    );
-
+    document.querySelectorAll(".counter");
 
 if ("IntersectionObserver" in window) {
 
@@ -321,12 +246,7 @@ if ("IntersectionObserver" in window) {
 
                 entries.forEach(entry => {
 
-                    if (
-                        !entry.isIntersecting
-                    ) {
-                        return;
-                    }
-
+                    if (!entry.isIntersecting) return;
 
                     const counter =
                         entry.target;
@@ -338,12 +258,9 @@ if ("IntersectionObserver" in window) {
                             )
                         );
 
-                    const duration =
-                        1300;
-
+                    const duration = 1300;
                     const startTime =
                         performance.now();
-
 
                     const animateCounter =
                         currentTime => {
@@ -353,11 +270,9 @@ if ("IntersectionObserver" in window) {
                                     (
                                         currentTime -
                                         startTime
-                                    ) /
-                                    duration,
+                                    ) / duration,
                                     1
                                 );
-
 
                             const eased =
                                 1 -
@@ -366,21 +281,15 @@ if ("IntersectionObserver" in window) {
                                     3
                                 );
 
-
                             const current =
                                 Math.ceil(
-                                    target *
-                                    eased
+                                    target * eased
                                 );
-
 
                             counter.innerText =
                                 current;
 
-
-                            if (
-                                progress < 1
-                            ) {
+                            if (progress < 1) {
 
                                 requestAnimationFrame(
                                     animateCounter
@@ -395,15 +304,11 @@ if ("IntersectionObserver" in window) {
 
                         };
 
-
-                    counter.innerText =
-                        "0";
-
+                    counter.innerText = "0";
 
                     requestAnimationFrame(
                         animateCounter
                     );
-
 
                     counterObserver.unobserve(
                         counter
@@ -417,14 +322,11 @@ if ("IntersectionObserver" in window) {
             }
         );
 
-
     counters.forEach(counter => {
 
         counter.innerText = "0";
 
-        counterObserver.observe(
-            counter
-        );
+        counterObserver.observe(counter);
 
     });
 
@@ -440,36 +342,20 @@ document.addEventListener(
     () => {
 
         const toggle =
-            document.querySelector(
-                ".menu-toggle"
-            );
+            document.querySelector(".menu-toggle");
 
         const nav =
-            document.querySelector(
-                ".nav-links"
-            );
+            document.querySelector(".nav-links");
 
+        if (!toggle || !nav) return;
 
-        if (!toggle || !nav) {
-            return;
-        }
+        toggle.addEventListener("click", () => {
 
+            nav.classList.toggle("active");
 
-        toggle.addEventListener(
-            "click",
-            () => {
+            toggle.classList.toggle("active");
 
-                nav.classList.toggle(
-                    "active"
-                );
-
-                toggle.classList.toggle(
-                    "active"
-                );
-
-            }
-        );
-
+        });
 
         nav.querySelectorAll("a")
             .forEach(link => {
@@ -509,30 +395,25 @@ let chatHistory = [];
 function toggleChat() {
 
     const chat =
-        document.getElementById(
-            "chatbox"
-        );
+        document.getElementById("chatbox");
 
-
-    if (!chat) {
-        return;
-    }
-
+    if (!chat) return;
 
     const isOpen =
         chat.style.display === "flex";
 
-
     if (isOpen) {
 
-        chat.style.display =
-            "none";
+        chat.style.display = "none";
+
+        // Stop voice when chat closes
+        if ("speechSynthesis" in window) {
+            speechSynthesis.cancel();
+        }
 
     } else {
 
-        chat.style.display =
-            "flex";
-
+        chat.style.display = "flex";
 
         setTimeout(() => {
 
@@ -542,14 +423,111 @@ function toggleChat() {
                 );
 
             if (input) {
-
                 input.focus();
-
             }
 
         }, 100);
 
     }
+
+}
+
+
+// =====================================================
+// 🔊 TEXT TO SPEECH
+// =====================================================
+
+function speakReply(text) {
+
+    // Browser speech support check
+    if (!("speechSynthesis" in window)) {
+
+        console.warn(
+            "Speech Synthesis is not supported."
+        );
+
+        return;
+    }
+
+    if (!text) return;
+
+
+    // Stop previous speech
+    window.speechSynthesis.cancel();
+
+
+    // Remove emojis and unnecessary symbols
+    const cleanText =
+        text
+            .replace(
+                /[\u{1F300}-\u{1FAFF}]/gu,
+                ""
+            )
+            .replace(
+                /[*_#`]/g,
+                ""
+            )
+            .trim();
+
+
+    if (!cleanText) return;
+
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            cleanText
+        );
+
+
+    // Voice settings
+    speech.lang = "en-US";
+
+    speech.rate = 0.95;
+
+    speech.pitch = 1;
+
+    speech.volume = 1;
+
+
+    // Try to select a natural English voice
+    const voices =
+        window.speechSynthesis.getVoices();
+
+    const preferredVoice =
+        voices.find(
+            voice =>
+                voice.lang === "en-US"
+        ) ||
+        voices.find(
+            voice =>
+                voice.lang.startsWith("en")
+        );
+
+    if (preferredVoice) {
+        speech.voice = preferredVoice;
+    }
+
+
+    // Speak
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+
+// =====================================================
+// LOAD VOICES
+// =====================================================
+
+if ("speechSynthesis" in window) {
+
+    window.speechSynthesis.onvoiceschanged =
+        () => {
+
+            window.speechSynthesis.getVoices();
+
+        };
 
 }
 
@@ -585,7 +563,7 @@ async function sendMessage() {
     }
 
 
-    // Prevent multiple requests
+    // Prevent duplicate requests
     if (input.disabled) {
         return;
     }
@@ -600,15 +578,12 @@ async function sendMessage() {
             "div"
         );
 
-
     userMsg.classList.add(
         "user-msg"
     );
 
-
     userMsg.innerText =
         message;
-
 
     chatBody.appendChild(
         userMsg
@@ -633,15 +608,12 @@ async function sendMessage() {
             "div"
         );
 
-
     botMsg.classList.add(
         "bot-msg"
     );
 
-
     botMsg.innerText =
         "✨ Thinking...";
-
 
     chatBody.appendChild(
         botMsg
@@ -684,7 +656,10 @@ async function sendMessage() {
             );
 
 
-        // Check HTTP response
+        // =================================================
+        // HTTP ERROR
+        // =================================================
+
         if (!response.ok) {
 
             throw new Error(
@@ -693,6 +668,10 @@ async function sendMessage() {
 
         }
 
+
+        // =================================================
+        // JSON RESPONSE
+        // =================================================
 
         const data =
             await response.json();
@@ -705,7 +684,7 @@ async function sendMessage() {
 
 
         // =================================================
-        // CHECK API RESPONSE
+        // API ERROR
         // =================================================
 
         if (
@@ -722,7 +701,7 @@ async function sendMessage() {
 
 
         // =================================================
-        // SHOW AI RESPONSE
+        // AI REPLY
         // =================================================
 
         const reply =
@@ -730,12 +709,17 @@ async function sendMessage() {
             "Sorry, I couldn't generate a response.";
 
 
+        // Show reply
         botMsg.innerText =
             reply;
 
 
+        // 🔊 SPEAK AI REPLY
+        speakReply(reply);
+
+
         // =================================================
-        // SAVE CHAT HISTORY
+        // SAVE HISTORY
         // =================================================
 
         chatHistory.push({
@@ -793,7 +777,6 @@ async function sendMessage() {
 
     input.focus();
 
-
     chatBody.scrollTop =
         chatBody.scrollHeight;
 
@@ -813,11 +796,7 @@ document.addEventListener(
                 "userInput"
             );
 
-
-        if (!input) {
-            return;
-        }
-
+        if (!input) return;
 
         input.addEventListener(
             "keydown",
@@ -847,15 +826,12 @@ document.addEventListener(
 
 function createRain() {
 
-    // Respect reduced motion
     if (
         window.matchMedia(
             "(prefers-reduced-motion: reduce)"
         ).matches
     ) {
-
         return;
-
     }
 
 
@@ -865,9 +841,7 @@ function createRain() {
             ".rain-layer"
         )
     ) {
-
         return;
-
     }
 
 
@@ -876,10 +850,8 @@ function createRain() {
             "div"
         );
 
-
     rain.className =
         "rain-layer";
-
 
     rain.setAttribute(
         "aria-hidden",
@@ -887,7 +859,6 @@ function createRain() {
     );
 
 
-    // Rain drops
     const dropCount =
         window.innerWidth < 700
             ? 55
@@ -908,7 +879,6 @@ function createRain() {
             document.createElement(
                 "span"
             );
-
 
         drop.className =
             "rain-drop";
@@ -1006,7 +976,6 @@ const hero =
         ".hero"
     );
 
-
 const aurora =
     document.querySelector(
         ".aurora"
@@ -1085,7 +1054,6 @@ document.querySelectorAll(
     .experience-timeline
     `
 ).forEach(container => {
-
 
     [
         ...container.children
