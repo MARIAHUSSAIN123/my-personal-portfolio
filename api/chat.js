@@ -181,7 +181,7 @@ Professional Areas:
 - Machine Learning
 - Deep Learning
 - Graphic Designing
-- UI/UX Design
+- Ui/UX Design
 - Content Creation
 
 Location:
